@@ -1,0 +1,25 @@
+# Reemplaza a src/main/resources/application.yml durante las pruebas (no se mezcla con él):
+# sin Config Server, con los mismos valores de eureka-server.yml que importan para las pruebas.
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    config:
+      enabled: false
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: false
+    wait-time-in-ms-when-sync-empty: 0
+    # Lecturas desde la caché de lectura/escritura, que se invalida en cada alta y baja:
+    # así la prueba ve el cambio al instante y no a los 5 s del refresco.
+    use-read-only-response-cache: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
