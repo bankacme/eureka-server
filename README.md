@@ -32,6 +32,10 @@ En las pruebas de cada servicio `eureka.client.enabled: false` (en `src/test/res
 - [ ] Diagramas de la ficha (§9): despliegue y secuencia registro → latidos → descubrimiento.
 - [ ] Dockerfile (paso 2.7, junto con el resto de servicios).
 
+## Diagramas
+
+- Secuencia de registro, latidos y descubrimiento: `docs/sequence/register-and-discover.md`.
+
 ## Comandos
 - Compilar, estilo, pruebas y cobertura: `.\mvnw verify`
 - Arrancar (necesita `config-server` arriba): `.\mvnw spring-boot:run`
